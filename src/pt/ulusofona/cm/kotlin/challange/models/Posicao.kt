@@ -6,4 +6,9 @@ class Posicao(var x:Int,var y:Int) {
         this.y = y
     }
 
+    override fun toString(): String {
+        return "Posicao | x:$x | y:$y"
+    }
+
+
 }
