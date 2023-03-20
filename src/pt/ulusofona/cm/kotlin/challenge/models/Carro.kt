@@ -18,6 +18,7 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
 
     override fun estaLigado(): Boolean {
         //return motor.ligado
+        return false
     }
 
     override fun moverPara(x: Int, y: Int) {
