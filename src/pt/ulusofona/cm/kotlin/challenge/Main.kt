@@ -15,6 +15,6 @@ fun main(){
     println(pessoa)
     println(carro)
     println(pessoa.tirarCarta())
-    carro.ligarCarro()
-    carro.ligarCarro()
+    carro.ligar()
+    carro.ligar()
 }
