@@ -1,9 +1,11 @@
 package pt.ulusofona.cm.kotlin.challange.models
 
+import pt.ulusofona.cm.kotlin.challange.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challange.interfaces.Movimentavel
-import java.util.*
+import java.time.LocalDate
+import java.time.Period
 
-class Pessoa(val nome:String,val dataDeNascimento:Date = Date()):Movimentavel {
+class Pessoa(val nome:String,val dataDeNascimento:LocalDate):Movimentavel {
     val veiculos: ArrayList<Veiculo> = ArrayList<Veiculo>()
     var carta:Carta? = null
     var posicao:Posicao = Posicao(0,0)
@@ -37,8 +39,17 @@ class Pessoa(val nome:String,val dataDeNascimento:Date = Date()):Movimentavel {
         return false
     }
 
+    fun maiorDeIdade(): Boolean {
+        val age = Period.between(dataDeNascimento, LocalDate.now()).years
+        return age >= 18
+    }
+
     fun tirarCarta(){
-        carta = Carta()
+        if(maiorDeIdade()){
+            carta = Carta()
+        }else{
+            throw MenorDeIdadeException("A pessoa é menor de 18")
+        }
     }
 
     override fun moverPara(x: Int, y: Int) {
