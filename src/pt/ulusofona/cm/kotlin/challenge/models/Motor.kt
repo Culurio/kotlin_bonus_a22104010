@@ -2,8 +2,9 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
-class Motor(val cavalos:Int, val cilindrada:Int) {
+class Motor(val cavalos:Int, val cilindrada:Int):Ligavel {
      var ligado:Boolean = false
 
     fun desligarMotor(){
@@ -19,6 +20,20 @@ class Motor(val cavalos:Int, val cilindrada:Int) {
         }
         ligado = true
     }
+
+    override fun ligar() {
+        //motor.ligado= true
+    }
+
+    override fun desligar() {
+        //motor.ligado=false
+    }
+
+    override fun estaLigado(): Boolean {
+        //return motor.ligado
+        return false
+    }
+
 
     /*fun getLigado():Boolean{
         return ligado
