@@ -1,6 +1,7 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
 
 class Motor(val cavalos:Int, val cilindrada:Int) {
      var ligado:Boolean = false
@@ -14,7 +15,7 @@ class Motor(val cavalos:Int, val cilindrada:Int) {
 
     fun ligarMotor(){
         if(ligado){
-            throw VeiculoDesligadoException("O veiculo já está ligado")
+            throw VeiculoLigadoException("O veiculo já está ligado")
         }
         ligado = true
     }
