@@ -6,18 +6,18 @@ import java.time.LocalDate
 import java.time.Period
 
 class Pessoa(val nome:String,val dataDeNascimento:LocalDate):Movimentavel {
-    val veiculos: ArrayList<Veiculo> = ArrayList<Veiculo>()
+    val veiculos: ArrayList<Veiculo> = ArrayList()
     var carta:Carta? = null
     var posicao:Posicao = Posicao(0,0)
 
     fun comprarVeiculo(veiculo: Veiculo){
+        veiculo.dataDeAquisicao = LocalDate.now()
         veiculos.add(veiculo)
     }
 
     fun pesquisarVeiculo(identificador:String):Veiculo?{
-        val veiculoId = identificador
         for(veiculo in veiculos){
-            if(veiculo.identificador == veiculoId){
+            if (veiculo.identificador == identificador) {
                 return veiculo
             }
         }
@@ -28,8 +28,10 @@ class Pessoa(val nome:String,val dataDeNascimento:LocalDate):Movimentavel {
         //TODO
     }
 
-    fun moverVeiculoPara(identificador: String, x:Int, y:Int){
-        //TODO
+    fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
+        pesquisarVeiculo(identificador)?.moverPara(x, y)
+        moverPara(x,y)
+
     }
 
     fun temCarta():Boolean{
