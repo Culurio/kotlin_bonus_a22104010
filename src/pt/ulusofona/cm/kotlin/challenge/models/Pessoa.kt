@@ -16,7 +16,6 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
     val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.UK)
 
     fun comprarVeiculo(veiculo: Veiculo){
-        veiculo.dataDeAquisicao = Date.from(Instant.now())
         veiculos.add(veiculo)
     }
 
