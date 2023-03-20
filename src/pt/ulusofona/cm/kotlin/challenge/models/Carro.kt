@@ -2,7 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
-class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador) {
+class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Ligavel {
     override fun requerCarta(): Boolean {
         return true
     }
@@ -15,7 +15,15 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador) {
         motor.desligar()
     }
 
-    fun estaLigado(): Boolean {
+    override fun ligar() {
+        motor.ligar()
+    }
+
+    override fun desligar() {
+        motor.desligar()
+    }
+
+    override fun estaLigado(): Boolean {
         return motor.estaLigado()
     }
 
