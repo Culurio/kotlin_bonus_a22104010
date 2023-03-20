@@ -1,7 +1,4 @@
-package pt.ulusofona.cm.kotlin.challange.models
-
-import pt.ulusofona.cm.kotlin.challange.exceptions.VeiculoDesligadoException
-import pt.ulusofona.cm.kotlin.challange.interfaces.Movimentavel
+package pt.ulusofona.cm.kotlin.challenge.models
 
 class Bicicleta(identificador:String): Veiculo(identificador) {
     override fun requerCarta(): Boolean {

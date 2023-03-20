@@ -1,9 +1,6 @@
-package pt.ulusofona.cm.kotlin.challange.models
+package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challange.exceptions.VeiculoDesligadoException
-import pt.ulusofona.cm.kotlin.challange.exceptions.VeiculoLigadoException
-import pt.ulusofona.cm.kotlin.challange.interfaces.Ligavel
-import pt.ulusofona.cm.kotlin.challange.interfaces.Movimentavel
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
 class Carro(identificador: String, private val motor:Motor) : Veiculo(identificador),Ligavel {
 

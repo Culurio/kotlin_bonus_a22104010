@@ -1,11 +1,9 @@
-package pt.ulusofona.cm.kotlin.challange
+package pt.ulusofona.cm.kotlin.challenge
 
-import pt.ulusofona.cm.kotlin.challange.models.Carro
-import pt.ulusofona.cm.kotlin.challange.models.Motor
-import pt.ulusofona.cm.kotlin.challange.models.Pessoa
+import pt.ulusofona.cm.kotlin.challenge.models.Carro
+import pt.ulusofona.cm.kotlin.challenge.models.Motor
+import pt.ulusofona.cm.kotlin.challenge.models.Pessoa
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 fun main(){
     var pessoa:Pessoa = Pessoa("Cláudio", LocalDate.of(2002,9,11))

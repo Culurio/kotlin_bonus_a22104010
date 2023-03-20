@@ -1,6 +1,6 @@
-package pt.ulusofona.cm.kotlin.challange.models
+package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challange.exceptions.VeiculoDesligadoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 
 class Motor(private val cavalos:Int, private val cilindrada:Int) {
     private var ligado:Boolean = false

@@ -1,7 +1,7 @@
-package pt.ulusofona.cm.kotlin.challange.models
+package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challange.exceptions.MenorDeIdadeException
-import pt.ulusofona.cm.kotlin.challange.interfaces.Movimentavel
+import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.time.LocalDate
 import java.time.Period
 
