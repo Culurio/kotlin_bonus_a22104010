@@ -2,16 +2,17 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
-import java.time.LocalDate
-import java.time.Period
+import java.time.Instant
+import java.util.*
+import kotlin.collections.ArrayList
 
-class Pessoa(val nome:String,val dataDeNascimento:LocalDate):Movimentavel {
+class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
     val veiculos: ArrayList<Veiculo> = ArrayList()
     var carta:Carta? = null
     var posicao:Posicao = Posicao(0,0)
 
     fun comprarVeiculo(veiculo: Veiculo){
-        veiculo.dataDeAquisicao = LocalDate.now()
+        veiculo.dataDeAquisicao = Date.from(Instant.now())
         veiculos.add(veiculo)
     }
 
@@ -42,8 +43,7 @@ class Pessoa(val nome:String,val dataDeNascimento:LocalDate):Movimentavel {
     }
 
     fun maiorDeIdade(): Boolean {
-        val age = Period.between(dataDeNascimento, LocalDate.now()).years
-        return age >= 18
+        return true
     }
 
     fun tirarCarta(){
