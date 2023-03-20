@@ -1,15 +1,19 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
     val veiculos: ArrayList<Veiculo> = ArrayList()
     var carta:Carta? = null
     var posicao:Posicao = Posicao(0,0)
+    val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.UK)
 
     fun comprarVeiculo(veiculo: Veiculo){
         veiculo.dataDeAquisicao = Date.from(Instant.now())
@@ -22,7 +26,7 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
                 return veiculo
             }
         }
-        return null
+        throw VeiculoNaoEncontradoException("Veiculo não existe")
     }
 
     fun venderVeiculo(identificador: String, comprador:Pessoa){
@@ -43,7 +47,10 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
     }
 
     fun maiorDeIdade(): Boolean {
-        return true
+        val now = Date()
+        val idadeEmMilis = now.time - dataDeNascimento.time
+        val idadeEmAnos = idadeEmMilis / 1000L / 60L / 60L / 24L / 365L
+        return idadeEmAnos >= 18L
     }
 
     fun tirarCarta(){
@@ -54,12 +61,13 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
         }
     }
 
+
     override fun moverPara(x: Int, y: Int) {
         posicao.alterarPosicaoPara(x,y)
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | Posicao | x:${posicao.x} | y:${posicao.y}"
+        return "Pessoa | $nome | ${dateFormat.format(dataDeNascimento)} | Posicao | x:${posicao.x} | y:${posicao.y}"
     }
 
 
