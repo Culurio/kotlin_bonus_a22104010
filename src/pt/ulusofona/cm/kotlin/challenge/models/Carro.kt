@@ -9,11 +9,11 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
     }
 
     override fun ligar() {
-        motor.ligarMotor()
+        motor.ligado= true
     }
 
     override fun desligar() {
-        motor.desligarMotor()
+        motor.ligado=false
     }
 
     override fun estaLigado(): Boolean {
