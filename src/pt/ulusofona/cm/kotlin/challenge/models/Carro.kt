@@ -1,7 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
-import pt.ulusofona.cm.kotlin.challenge.*
 
 class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Ligavel {
 
@@ -10,15 +9,15 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
     }
 
     override fun ligar() {
-        motor.ligado= true
+        //motor.ligado= true
     }
 
     override fun desligar() {
-        motor.ligado=false
+        //motor.ligado=false
     }
 
     override fun estaLigado(): Boolean {
-        return motor.ligado
+        //return motor.ligado
     }
 
     override fun moverPara(x: Int, y: Int) {

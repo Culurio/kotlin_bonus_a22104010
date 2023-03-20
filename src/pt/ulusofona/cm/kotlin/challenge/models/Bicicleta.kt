@@ -10,7 +10,7 @@ class Bicicleta(identificador:String): Veiculo(identificador) {
     }
 
     override fun toString(): String {
-        return "Bicicleta | $identificador | ${dataDeAquisicao} | Posicao | x:${posicao.x} | y:${posicao.y}"
+        return "Bicicleta | $identificador | $dataDeAquisicao | Posicao | x:${posicao.x} | y:${posicao.y}"
     }
 
 
