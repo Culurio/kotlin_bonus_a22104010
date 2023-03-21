@@ -1,6 +1,7 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
@@ -33,9 +34,18 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
-        pesquisarVeiculo(identificador)?.moverPara(x, y)
-        moverPara(x,y)
-
+        val veiculo = pesquisarVeiculo(identificador)
+        if(veiculo != null){
+            if(veiculo.requerCarta() && !temCarta()){
+                throw  PessoaSemCartaException()
+            }
+            if(veiculo.requerCarta() && !maiorDeIdade()){
+                throw MenorDeIdadeException("Esta pessoa é menor de idade")
+            }
+            veiculo.moverPara(x,y)
+        }else {
+            throw VeiculoNaoEncontradoException("Este veiculo não existe")
+        }
     }
 
     fun temCarta():Boolean{

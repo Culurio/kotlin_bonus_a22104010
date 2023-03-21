@@ -7,14 +7,13 @@ import java.util.*
 
 
 fun main(){
-    var pessoa:Pessoa = Pessoa("Cláudio", Date(2002-1900,8,11))
-    var carro: Carro = Carro("sdasd", Motor(12,12))
+    var pessoa = Pessoa("Cláudio", Date(2002-1900,8,11))
+    var carro = Carro("sdasd", Motor(12,12))
 
     pessoa.comprarVeiculo(carro)
+    println(pessoa.veiculos[0])
+    pessoa.tirarCarta()
     pessoa.moverVeiculoPara("sdasd", 1,1)
     println(pessoa)
     println(carro)
-    println(pessoa.tirarCarta())
-    carro.ligar()
-    carro.ligar()
 }
