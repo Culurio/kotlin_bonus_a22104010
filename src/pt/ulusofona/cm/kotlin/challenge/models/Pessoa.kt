@@ -5,7 +5,6 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
-import java.time.Instant
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -37,7 +36,7 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
         val veiculo = pesquisarVeiculo(identificador)
         if(veiculo != null){
             if(veiculo.requerCarta() && !temCarta()){
-                throw  PessoaSemCartaException()
+                throw  PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
             }
             if(veiculo.requerCarta() && !maiorDeIdade()){
                 throw MenorDeIdadeException("Esta pessoa é menor de idade")

@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
 class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Ligavel {
@@ -20,7 +21,11 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
     }
 
     override fun moverPara(x: Int, y: Int) {
-        posicao.alterarPosicaoPara(x,y)
+        if(estaLigado()){
+            posicao.alterarPosicaoPara(x,y)
+        }else{
+            throw VeiculoDesligadoException("O veiculo está desligado")
+        }
     }
 
     override fun toString(): String {
