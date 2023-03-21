@@ -26,10 +26,6 @@ class Motor(val cavalos:Int, val cilindrada:Int):Ligavel {
     }
 
 
-    /*fun getLigado():Boolean{
-        return ligado
-    }*/
-
     override fun toString(): String {
         return "Motor | $cavalos | $cilindrada"
     }
