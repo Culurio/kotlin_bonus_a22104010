@@ -2,7 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.exceptions
 
 import java.lang.Exception
 
-class PessoaSemCartaException(s: String) : Exception() {
+class PessoaSemCartaException(val nome:String): Exception() {
     override val message: String?
-        get() = "Person does not have a license."
+        get() = "$nome não tem carta para conduzir o veículo indicado"
 }

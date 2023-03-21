@@ -36,10 +36,7 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
         val veiculo = pesquisarVeiculo(identificador)
         if(veiculo != null){
             if(veiculo.requerCarta() && !temCarta()){
-                throw  PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
-            }
-            if(veiculo.requerCarta() && !maiorDeIdade()){
-                throw MenorDeIdadeException("Esta pessoa é menor de idade")
+                throw  PessoaSemCartaException(nome)
             }
             veiculo.moverPara(x,y)
         }else {
