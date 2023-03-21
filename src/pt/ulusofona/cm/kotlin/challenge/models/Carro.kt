@@ -21,7 +21,11 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
     }
 
     override fun moverPara(x: Int, y: Int) {
-        posicao.alterarPosicaoPara(x,y)
+        if(estaLigado()){
+            posicao.alterarPosicaoPara(x,y)
+        }else{
+            throw VeiculoDesligadoException("Veiculo está desligado")
+        }
     }
 
     override fun toString(): String {

@@ -16,5 +16,4 @@ fun main(){
     //pessoa.tirarCarta()
     pessoa.moverVeiculoPara("pixa", 1,1)
     println(pessoa)
-    println(carro)
 }
