@@ -39,6 +39,7 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
                 throw  PessoaSemCartaException(nome)
             }
             veiculo.moverPara(x,y)
+            moverPara(x,y)
         }else {
             throw VeiculoNaoEncontradoException("Este veiculo não existe")
         }
