@@ -20,9 +20,7 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
     }
 
     override fun moverPara(x: Int, y: Int) {
-        ligar()
         posicao.alterarPosicaoPara(x,y)
-        desligar()
     }
 
     override fun toString(): String {
