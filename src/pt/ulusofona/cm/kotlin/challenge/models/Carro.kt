@@ -24,7 +24,8 @@ class Carro(identificador: String,  val motor:Motor) : Veiculo(identificador),Li
         if(estaLigado()){
             posicao.alterarPosicaoPara(x,y)
         }else{
-            throw VeiculoDesligadoException("Veiculo está desligado")
+            ligar()
+            posicao.alterarPosicaoPara(x,y)
         }
     }
 
