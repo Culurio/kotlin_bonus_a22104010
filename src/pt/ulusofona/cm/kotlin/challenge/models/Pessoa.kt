@@ -5,6 +5,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
+import java.time.Instant
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -29,7 +30,14 @@ class Pessoa(val nome:String,val dataDeNascimento: Date):Movimentavel {
     }
 
     fun venderVeiculo(identificador: String, comprador:Pessoa){
-        //TODO
+        val veiculo = pesquisarVeiculo(identificador)
+        if(veiculo != null){
+            veiculo.dataDeAquisicao = Date.from(Instant.now())
+            comprador.comprarVeiculo(veiculo)
+            veiculos.remove(veiculo)
+        }else{
+            throw VeiculoNaoEncontradoException("Este veiculo não existe")
+        }
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
